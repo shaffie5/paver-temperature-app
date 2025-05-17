@@ -85,8 +85,12 @@ if uploaded_file is not None:
     pcm = ax1.pcolormesh(widths_2, Y2, Z2, shading='auto')
     ax1.set_xlabel("Paving width (m)")
     ax1.set_ylabel("Moving distance (m)")
-    for md in stops['moving_dist']:
-        ax1.hlines(md, widths_2[0], widths_2[-1], linestyles='--', linewidth=5)
+    for _, row in stops.iterrows():
+        y_start = row['moving_dist']
+        ax1.axhline(y=y_start, color='red', linestyle='--', linewidth=1.5, label='Stop' if _ == 0 else "")
+
+    #for md in stops['moving_dist']:
+        #ax1.hlines(md, widths_2[0], widths_2[-1], linestyles='--', linewidth=5)
     ax1.set_title(f"Temperature Map\nTotal Stop Time: {total_stop_time}")
     fig1.colorbar(pcm, ax=ax1, label="Temperature [°C]")
     st.pyplot(fig1)
