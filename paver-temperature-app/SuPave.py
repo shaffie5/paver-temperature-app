@@ -88,23 +88,18 @@ if uploaded_file is not None:
     ax1.set_xlabel("Paving width (m)")
     ax1.set_ylabel("Moving distance (m)")
     
-    # Step 1: Compute average temperature per row (across paving width)
+    #  Compute average temperature per row (across paving width)
     avg_temp_row = np.mean(Z2, axis=1)
     
-    # Step 2: Define drop threshold (e.g., large sudden temperature dips)
+    #  Define drop threshold (e.g., large sudden temperature dips)
     drop_threshold = 30  # adjust as needed
     drop_indices = np.where(np.diff(avg_temp_row) < -drop_threshold)[0]
     
-    # Step 3: Plot vertical stop lines based on detected drops
+    #  Plot vertical stop lines based on detected drops
     for i in drop_indices:
         y_pos = Y2[i]
         ax1.axhline(y=y_pos, color='red', linestyle='--', linewidth=1.5, label='Detected Stop' if i == drop_indices[0] else "")
     
-    # Optional: if you also want to annotate actual idle stop durations from GPS
-    for _, row in stops.iterrows():
-        y = row['moving_dist']
-        duration_str = str(row['duration'])
-        ax1.text(widths_2[-1], y, f"{duration_str}", va='center', fontsize=6, color='red')
     
     # Set plot title and colorbar
     ax1.set_title(f"Temperature Map\nTotal Stop Time: {total_stop_time}")
