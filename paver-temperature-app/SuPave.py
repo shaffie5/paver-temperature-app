@@ -297,13 +297,6 @@ if uploaded_file is not None:
     st.subheader("📄 Script Summary of Analysis Results")
 
     summary_lines = [
-        "DATA SUMMARY",
-        f"- Applied Width Thresholds: {lower_threshold} m to {upper_threshold} m",
-        f"- Dropped Width Columns: {dropped}",
-        "",
-        " STOP TIME ANALYSIS ",
-        f"- Total Stop Time: {total_stop_time}",
-        "",
         "COLD & RISK SPOTS ",
         f"- Cold Spots Enabled: {'Yes' if show_cold else 'No'}",
         f"- Risk Areas Enabled: {'Yes' if show_risk else 'No'}",
