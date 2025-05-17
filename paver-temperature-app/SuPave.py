@@ -85,10 +85,10 @@ if uploaded_file is not None:
     pcm = ax1.pcolormesh(widths_2, Y2, Z2, shading='auto')
     ax1.set_xlabel("Paving width (m)")
     ax1.set_ylabel("Moving distance (m)")
-   for _, row in stops.iterrows():
-        y = row['moving_dist']
-        duration_str = str(row['duration'])
-        ax1.text(widths_2[-1], y, f"{duration_str}", va='center', fontsize=6, color='red')
+for _, row in stops.iterrows():
+    y = row['moving_dist']
+    duration_str = str(row['duration'])
+    ax1.text(widths_2[-1], y, f"{duration_str}", va='center', fontsize=6, color='red')
     #for md in stops['moving_dist']:
         #ax1.hlines(md, widths_2[0], widths_2[-1], linestyles='--', linewidth=5)
     ax1.set_title(f"Temperature Map\nTotal Stop Time: {total_stop_time}")
