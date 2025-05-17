@@ -89,8 +89,6 @@ if uploaded_file is not None:
         y = row['moving_dist']
         duration_str = str(row['duration'])
         ax1.text(widths_2[-1], y, f"{duration_str}", va='center', fontsize=6, color='red')
-
-
     #for md in stops['moving_dist']:
         #ax1.hlines(md, widths_2[0], widths_2[-1], linestyles='--', linewidth=5)
     ax1.set_title(f"Temperature Map\nTotal Stop Time: {total_stop_time}")
