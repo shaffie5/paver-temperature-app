@@ -86,7 +86,7 @@ if uploaded_file is not None:
     ax1.set_xlabel("Paving width (m)")
     ax1.set_ylabel("Moving distance (m)")
     for md in stops['moving_dist']:
-        ax1.hlines(md, widths_2[0], widths_2[-1], linestyles='--', linewidth=2)
+        ax1.hlines(md, widths_2[0], widths_2[-1], linestyles='--', linewidth=5)
     ax1.set_title(f"Temperature Map\nTotal Stop Time: {total_stop_time}")
     fig1.colorbar(pcm, ax=ax1, label="Temperature [°C]")
     st.pyplot(fig1)
